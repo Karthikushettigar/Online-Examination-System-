@@ -15,7 +15,7 @@
         $result = $conn->query($query);
         if($result->num_rows == 1){
             //login success
-            header("location: success.html");
+            header("location: student_home.php");
             exit();
         }
         
@@ -23,7 +23,7 @@
         $result = $conn->query($query);
         if($result->num_rows == 1){
             //login success
-            header("location: success1.html");
+            header("location: staff_home.php");
             exit();
         }
         else{

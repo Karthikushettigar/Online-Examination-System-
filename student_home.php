@@ -7,8 +7,7 @@
         if($conn->connect_error){
             die("connection failed".$conn->connect_error);
         }
-            
-            $dbinfo = "SELECT USN, Name, Email, Ph_No, Department, DOB, Gender FROM student";
+            $dbinfo = "SELECT * FROM student";
             $result = $conn->query($dbinfo);
             if(mysqli_num_rows($result)>0){
                 while($row=mysqli_fetch_assoc($result)){
@@ -21,6 +20,7 @@
             $Gender = $row['Gender'];
                 }
         }
+        $conn->close();
         
 ?>
 <!DOCTYPE html>
@@ -214,7 +214,7 @@
     </div>
     <div class="profile-card" id="profileCard">
         <h3>User Details</h3>
-        <p>Type of user:</p>
+        <p>Type of user: Student</p>
         <p>Name: <span><?php echo $Name; ?></span></p>
         <p>USN:<span><?php echo $USN; ?></span></p>
         <p>Email: <span><?php echo $Email; ?></span></p>

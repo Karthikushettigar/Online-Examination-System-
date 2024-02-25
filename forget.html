@@ -54,23 +54,22 @@
 </head>
 <body>
     <h1>Online Examination System</h1>
-    <h2 class="log">Log-In</h2>
+    <h2 class="log">Login Using Date of Birth</h2>
     <div class="container">
         <div class="login">
             <div class="radio-container">
-                <form action="index.php" method ="POST">
+                <form action="forget.php" method ="POST">
                 <!-- <label for="student">Student</label>
                 <input type="radio" id="student" name="userType" value="student" required>
                 <label for="teacher">Teacher</label>
                 <input type="radio" id="teacher" name="userType" value="teacher" required> -->
                 <h2>Username</h2>
                 <input type="Username" placeholder="Enter your Username" name="Username" />
-                <h2>Password</h2>
-                <input type="Password" placeholder="Enter your Password" name="Password"/>
-                <h2><a href="forget.html">Forgot Password</a></h2>
-                <button>Login</button> <!-- Moved the button outside the div -->
-                <h2>New User! <a href="signup.html">Sign-Up</a></h2>
-            </form>
+                <h2>DOB</h2>
+                <input type="Date" placeholder="Enter your date of Dirth" name="DOB"/>
+                <button>Login</button> 
+                </form>
+                <p>Remembered Password! <a href="index.html"> Login Here</a> </p>
             </div>
         </div>
     </div>

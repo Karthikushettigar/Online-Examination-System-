@@ -1,17 +1,35 @@
 <?php
-        $host = "localhost";
-        $dusername = "root";
-        $dpassword = "admin";
-        $dbname = "dbms";
-        $conn = new mysqli($host, $dusername, $dpassword, $dbname,3307);
-        if($conn->connect_error){
-            die("connection failed".$conn->connect_error);
-        }
-            
-            $dbinfo = "SELECT Staff_Id, Name, Email, Ph_No, Department, DOB, Gender FROM staff";
-            $result = $conn->query($dbinfo);
-            if(mysqli_num_rows($result)>0){
-                while($row=mysqli_fetch_assoc($result)){
+    session_start(); // Start the session to access session variables
+
+    // Check if the user is logged in
+    if (!isset($_SESSION['username'])) {
+        header("Location: index.html"); // Redirect to login page if not logged in
+        exit();
+    }
+
+    // Get the username from the session
+    $username = $_SESSION['username'];
+
+    // Connect to the database
+    $host = "localhost";
+    $dusername = "root";
+    $dpassword = "admin";
+    $dbname = "dbms";
+    $conn = new mysqli($host, $dusername, $dpassword, $dbname, 3307);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and execute SQL query to fetch staff details based on username
+    $stmt = $conn->prepare("SELECT Staff_Id, Name, Email, Ph_No, Department, DOB, Gender FROM staff WHERE Staff_Id = ? OR Email = ?");
+    $stmt->bind_param("ss", $username, $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if any rows were returned
+    if ($result->num_rows > 0) {
+        // Output data of the first row (assuming username is unique)
+        $row = $result->fetch_assoc();
             $Staff_Id = $row['Staff_Id'];
             $Name = $row['Name'];
             $Email = $row['Email'];
@@ -20,7 +38,6 @@
             $DOB = $row['DOB'];
             $Gender = $row['Gender'];
                 }
-        }
         
 ?>
 <!DOCTYPE html>
@@ -158,7 +175,7 @@
     <h2>Dashboard</h2>
     <div class="container">
         <div class="box">
-            <h3>Add Quiz</h3>
+            <h3><a href="add_quiz.html"> Add Quiz</a></h3>
         </div>
         <div class="box">
             <h3>Delete Quiz</h3>

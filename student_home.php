@@ -172,7 +172,7 @@ if ($result->num_rows > 0) {
     <h1>Welcome to Online Examination System</h1>
     <h2>Take any Quiz</h2>
  
-           <a href="#" class="take-quiz-link">Take Quiz</a>
+           <a href="take_quiz.html" class="take-quiz-link">Take Quiz</a>
        
     <div class="leaderboard">
         <h2>Leaderboard</h2>

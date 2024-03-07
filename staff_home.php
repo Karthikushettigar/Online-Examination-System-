@@ -178,10 +178,10 @@
             <h3><a href="add_quiz.html"> Add Quiz</a></h3>
         </div>
         <div class="box">
-            <h3>Delete Quiz</h3>
+            <h3><a href="delete_quiz.html"> Delete Quiz</a></h3>
         </div>
         <div class="box">
-            <h3>View Quiz</h3>
+            <h3><a href="view_quiz.html"> View Quiz</a></h3>
         </div>
     </div>
     <div class="leaderboard">
@@ -220,7 +220,7 @@
   
     <div class="profile-card" id="profileCard">
         <h3>User Details</h3>
-        <p>Type of user:</p>
+        <p>Type of user: Staff</p>
         <p>Name: <span><?php echo $Name; ?></span></p>
         <p>Staff_Id:<span><?php echo $Staff_Id; ?></span></p>
         <p>Email: <span><?php echo $Email; ?></span></p>

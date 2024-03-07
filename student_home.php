@@ -172,31 +172,8 @@ if ($result->num_rows > 0) {
     <h1>Welcome to Online Examination System</h1>
     <h2>Take any Quiz</h2>
  
-<table>
-    <thead>
-        <tr>
-            <th>Quiz Title</th>
-            <th>Created On</th>
-            <th>Created By</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Quiz 1</td>
-            <td></td>
-            <td></td>
-            <td><a href="#" class="take-quiz-link">Take Quiz</a></td>
-        </tr>
-        <tr>
-            <td>Quiz 2</td>
-            <td></td>
-            <td></td>
-            <td><a href="#" class="take-quiz-link">Take Quiz</a></td>
-        </tr>
+           <a href="#" class="take-quiz-link">Take Quiz</a>
        
-    </tbody>
-</table>
     <div class="leaderboard">
         <h2>Leaderboard</h2>
         <table>

@@ -176,7 +176,7 @@ if ($result->num_rows > 0) {
        
     <div class="leaderboard">
         <h2>Leaderboard</h2>
-        <a href="take_quiz.html" class="take-quiz-link">Leaderboard</a>
+        <a href="leaderboard.php" class="take-quiz-link">Leaderboard</a>
 
     </div>
     <div class="profile-card" id="profileCard">

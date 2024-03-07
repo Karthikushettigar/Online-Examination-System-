@@ -61,17 +61,15 @@ if(isset($_POST['answer'])) {
         }
     }
     
-    // Display score
     echo "<p>Score: $score / $totalQuestions</p>";
     
-    // Insert/update score in the table
+    // Insert score in the table
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
-        // Check if the username exists in the student table
         $checkQuery = "SELECT * FROM student WHERE USN='$username'or Email='$username'";
         $result = $conn->query($checkQuery);
         if ($result->num_rows > 0) {
-            // Determine whether it's an email or USN
+
             if (strpos($_SESSION['username'], '@') !== false) {
                 $Email = $_SESSION['username'];
                 $query = "INSERT INTO score (Score, Total_Score, Quiz_Id, Email) VALUES ('$score', '$totalQuestions', '$Quiz_Id', '$Email')";
@@ -84,6 +82,10 @@ if(isset($_POST['answer'])) {
             echo '<script>alert("User does not exist in the student table.");</script>';
         }
     }
+    $_SESSION['score'] = $score;
+    $_SESSION['totalQuestions'] = $totalQuestions;
+
+    header("Location: submit_quiz.php");
 }
 
     } else {
@@ -93,8 +95,6 @@ if(isset($_POST['answer'])) {
         </script>';
         exit();
     }
-
-    // Close database connection
     $conn->close();
 }
 ?>

@@ -164,7 +164,7 @@ if ($result->num_rows > 0) {
     <div class="navbar-right">
         <a href="student_home.php">Dashboard</a>
         <a href="#" onclick="toggleProfileCard(event)">Profile</a>
-        <a href="#">Quizzes</a>
+        <a href="take_quiz.html">Quizzes</a>
         <a href="index.html">Sign Out</a>
     </div>
 </div>

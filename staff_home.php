@@ -155,6 +155,19 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
+        .take-quiz-link {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 1px solid #000;
+        }
+
+        .take-quiz-link:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -166,7 +179,7 @@
     <div class="navbar-right">
         <a href="staff_home.php">Dashboard</a>
         <a href="#" onclick="toggleProfileCard(event)">Profile</a>
-        <a href="#">Quizzes</a>
+        <a href="leaderboard.php">leaderboard</a>
         <a href="index.html">Sign Out</a>
     </div>
 </div>
@@ -186,36 +199,8 @@
     </div>
     <div class="leaderboard">
         <h2>Leaderboard</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Quiz Title</th>
-                    <th>Student Name</th>
-                    <th>Score Obtained</th>
-                    <th>Max Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Quiz 1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Quiz 2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Quiz 3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <a href="leaderboard.php" class="take-quiz-link">Leaderboard</a>
+        
     </div>
   
     <div class="profile-card" id="profileCard">

@@ -176,36 +176,8 @@ if ($result->num_rows > 0) {
        
     <div class="leaderboard">
         <h2>Leaderboard</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Quiz Title</th>
-                    <th>Student Name</th>
-                    <th>Score Obtained</th>
-                    <th>Max Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Quiz 1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Quiz 2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Quiz 3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <a href="take_quiz.html" class="take-quiz-link">Leaderboard</a>
+
     </div>
     <div class="profile-card" id="profileCard">
         <h3>User Details</h3>

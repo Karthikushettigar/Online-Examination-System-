@@ -45,70 +45,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar</title>
+    <title>Dashboard</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
         .navbar {
-            overflow: hidden;
-            background-color: #333; 
-        }
-
-        .navbar-left {
-            float: left;
-        }
-
-        .navbar-right {
-            float: right;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .navbar a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
+            color: #fff;
             text-decoration: none;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
         }
 
         .navbar a:hover {
-            background-color: #ddd; 
-            color: black;
+            background-color: #0056b3;
         }
-        
+
         .main {
             text-align: center;
+            margin-top: 50px;
         }
-        
-        .box1 {
-            border: 2px solid black;
-            height: 60px;
-            width: 120px;
-        }
-        
+
         .container {
             display: flex;
             justify-content: space-around;
-            margin-top: 50px;
+            margin-bottom: 50px;
         }
 
         .box {
             width: 200px;
             height: 100px;
             background-color: #f0f0f0;
-            border: 2px solid #333;
-            border-radius: 5px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .box:hover {
-            background-color: #ddd;
+            background-color: #e9e9e9;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .box h3 {
@@ -116,57 +109,47 @@
             font-size: 18px;
             color: #333;
         }
-        
+
         .leaderboard {
-            position: relative;
-            top: 20px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
+            margin-bottom: 50px;
         }
 
-        th, td {
-            border: 2px solid #555;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-       
         .profile-card {
             display: none;
             position: absolute;
             top: 70px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #f0f0f0;
-            border: 2px solid #333;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
+
+        .profile-card h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .profile-card p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
         .take-quiz-link {
             display: inline-block;
-            padding: 5px 10px;
-            background-color: #4CAF50;
-            color: white;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
             border-radius: 5px;
             text-decoration: none;
-            border: 1px solid #000;
+            transition: all 0.3s ease;
         }
 
         .take-quiz-link:hover {
-            background-color: #45a049;
+            background-color: #218838;
         }
     </style>
 </head>
@@ -179,37 +162,35 @@
     <div class="navbar-right">
         <a href="staff_home.php">Dashboard</a>
         <a href="#" onclick="toggleProfileCard(event)">Profile</a>
-        <a href="leaderboard.php">leaderboard</a>
+        <a href="leaderboard.php">Leaderboard</a>
         <a href="index.html">Sign Out</a>
     </div>
 </div>
+
 <div class="main">
     <h1>Welcome to Online Examination System</h1>
     <h2>Dashboard</h2>
     <div class="container">
-        <div class="box">
-            <h3><a href="add_quiz.html"> Add Quiz</a></h3>
+        <div class="box" onclick="location.href='add_quiz.html';">
+            <h3>Add Quiz</h3>
         </div>
-        <div class="box">
-            <h3><a href="delete_quiz.html"> Delete Quiz</a></h3>
+        <div class="box" onclick="location.href='delete_quiz.html';">
+            <h3>Delete Quiz</h3>
         </div>
-        <div class="box">
-            <h3><a href="view_quiz.html"> View Quiz</a></h3>
+        <div class="box" onclick="location.href='view_quiz.html';">
+            <h3>View Quiz</h3>
         </div>
     </div>
     <div class="leaderboard">
-        <h2>Leaderboard</h2>
-        <a href="leaderboard.php" class="take-quiz-link">Leaderboard</a>
-        
+        <a href="leaderboard.php" class="take-quiz-link">View Leaderboard</a>
     </div>
-  
     <div class="profile-card" id="profileCard">
         <h3>User Details</h3>
         <p>Type of user: Staff</p>
         <p>Name: <span><?php echo $Name; ?></span></p>
-        <p>Staff_Id:<span><?php echo $Staff_Id; ?></span></p>
+        <p>Staff Id: <span><?php echo $Staff_Id; ?></span></p>
         <p>Email: <span><?php echo $Email; ?></span></p>
-        <p>Ph.no: <span><?php echo $Ph_No; ?></span></p>
+        <p>Phone Number: <span><?php echo $Ph_No; ?></span></p>
         <p>Department: <span><?php echo $Department; ?></span></p>
         <p>DOB: <span><?php echo $DOB; ?></span></p>
         <p>Gender: <span><?php echo $Gender; ?></span></p>
@@ -217,7 +198,6 @@
 </div>
 
 <script>
-   
     function toggleProfileCard(event) {
         var profileCard = document.getElementById('profileCard');
         if (profileCard.style.display === 'block') {
@@ -225,11 +205,9 @@
         } else {
             profileCard.style.display = 'block';
         }
-      
         event.stopPropagation();
     }
 
-   
     document.body.addEventListener('click', function() {
         var profileCard = document.getElementById('profileCard');
         profileCard.style.display = 'none';

@@ -3,167 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Online Examination System</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
         .oes {
             text-align: center;
-            border: 2px solid;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            color: #333;
+           
+            text-align: center;
+            padding: 20px;
+        
+            background: linear-gradient(to right, #4CAF50, #008CBA);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 36px;
+            width: 100%;
+       
         }
 
         h1 {
             text-align: center;
+            color: #333;
         }
 
         .signup {
-            justify-items: center;
-            align-items: center;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         h2 {
-            font-size: medium;
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="password"],
+        select,
+        .gen {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
         }
 
         .btn {
-            padding-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
 
-        #studentPage,
-        #staffPage {
-            border: 2px solid;
-            padding: 20px;
-            display: none;
+        .btn button {
+            padding: 12px 60px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            color: #333;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         .button-container {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            
         }
 
         .button-container button {
-            width: 45%;
-            padding: 10px;
-            font-size: 16px;
+            padding: 15px 300px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 2px solid #007bff;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .active {
-            background-color: lightblue; 
+        .button-container button.active {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+        .mid{
+            text-align: center;
+        }
+        #studentPage {
+            border-top: 3px solid black;
+        }
+        #staffPage {
+            border-top: 3px solid black;
         }
     </style>
 </head>
 <body>
     <h1 class="oes">Online Examination System</h1>
     <div class="button-container">
-        <button id="studentButton" class="active" onclick="showPage('studentPage')">Student</button>
-        <button id="staffButton" onclick="showPage('staffPage')">Staff</button>
+        <button id="studentButton" class="active" onclick="showPage('studentPage')">Student Sign Up</button>
+        <button id="staffButton" onclick="showPage('staffPage')">Staff Sign Up</button>
     </div>
-    <div id="studentPage" class="page">
+    <br>
+    <div id="studentPage" class="page active">
         <h1>Sign Up as Student!</h1>
-    <form action ="stud.php" method="POST">
-    <div class="signup">
-    <h2>Name</h2>
-    <input type="Name" placeholder="Enter your Name" name="Name"  />
-    <h2>USN</h2>
-    <input type="USN" placeholder="Enter your USN" name="USN"  />
-    <h2>Email</h2>
-    <input type="Email" placeholder="Enter your Email" name="Email" />
-    <h2> Phone_Number </h2>
-    <input type="tel" placeholder="Enter your Phone_Number" name="Phone_Number" />
-    <div class="select">
-        <h2>Department</h2>
-        <select name="Department" class="selc" >
-            <option value="" disabled selected>Please Select</option>
-            <option value="CSE">CSE</option>
-            <option value="ISE">ISE</option>
-            <option value="AIML">AIML</option>
-            <option value="IOT">IOT</option>
-            <option value="ENC">ENC</option>
-            <option value="ME">ME</option>
-            <option value="MTR">MTR</option>
-            <option value="AE">AE</option>
-            <option value="CV">CV</option>
-        </select>
+        <form action="stud.php" method="POST" class="signup">
+            <h2>Name</h2>
+            <input type="text" placeholder="Enter your Name" name="Name" required>
+            <h2>USN</h2>
+            <input type="text" placeholder="Enter your USN" name="USN" required>
+            <h2>Email</h2>
+            <input type="email" placeholder="Enter your Email" name="Email" required>
+            <h2>Phone Number</h2>
+            <input type="tel" placeholder="Enter your Phone Number" name="Phone_Number" required>
+            <div class="select">
+                <h2>Department</h2>
+                <select name="Department" class="selc" required>
+                    <option value="" disabled selected>Please Select</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ISE">ISE</option>
+                    <option value="AIML">AIML</option>
+                    <option value="IOT">IOT</option>
+                    <option value="ENC">ENC</option>
+                    <option value="ME">ME</option>
+                    <option value="MTR">MTR</option>
+                    <option value="AE">AE</option>
+                    <option value="CV">CV</option>
+                </select>
+            </div>
+            <h2>DOB</h2>
+            <input type="date" name="DOB" required>
+            <h2>Gender</h2>
+            <input type="radio" name="Gender" value="M" class="gen" required>MALE
+            <input type="radio" name="Gender" value="F" class="gen" required>FEMALE
+            <h2>Password</h2>
+            <input type="password" placeholder="Enter your password" name="Password" required>
+            <div class="btn">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="mid">
+        <p>By clicking the Sign Up button, you agree to our 
+            <a href="termsandcondition.html">Terms and Condition</a> and <a href="Privacy_Policy.html">Privacy Policy</a>
+        </p>
+        <p>Already have an account? <a href="index.html">Login Here</a></p>
     </div>
-    <h2>DOB</h2>
-    <input type="date" name="DOB" />
-    <h2>Gender</h2>
-    <input type="radio" name="Gender" value="M" class="gen"  style="height: 1vw !important;">MALE
-    <input type="radio" name="Gender" value="F" class="gen"  style="height: 1vw !important;">FEMALE
-    <h2>Password</h2>
-    <input type="Password" placeholder="Enter your password" name="Password" />
-        <div class="btn">
-            <button>Submit</button>
-        </div>
-    </form>
-    <p>By clicking the Sign Up button, you agree to our <br>
-    <a herf="">Terms and Condition</a> and <a herf="#">Policy Privacy</a>  
-    </p>
-    <p>Already have an account? <a href="index.html"> Login Here</a> </p>
-        
     </div>
-</div>
+
     <div id="staffPage" class="page">
         <h1>Sign Up as Staff!</h1>
-    <form action ="staff.php" method="POST">
-    <div class="signup">
-    <h2>Name</h2>
-    <input type="Name" placeholder="Enter your Name" name="Name"  />
-    <h2>Staff_Id</h2>
-    <input type="Staff_Id" placeholder="Enter your Staff ID" name="Staff_Id"  />
-    <h2>Email</h2>
-    <input type="Email" placeholder="Enter your Email" name="Email" />
-    <h2> Phone_Number </h2>
-    <input type="tel" placeholder="Enter your Phone_Number" name="Phone_Number" />
-    <div class="select">
-        <h2>Department</h2>
-        <select name="Department" class="selc" >
-            <option value="" disabled selected>Please Select</option>
-            <option value="CSE">CSE</option>
-            <option value="ISE">ISE</option>
-            <option value="AIML">AIML</option>
-            <option value="IOT">IOT</option>
-            <option value="ENC">ENC</option>
-            <option value="ME">ME</option>
-            <option value="MTR">MTR</option>
-            <option value="AE">AE</option>
-            <option value="CV">CV</option>
-        </select>
-    <h2>DOB</h2>
-    <input type="date" name="DOB" />
-    <h2>Gender</h2>
-    <input type="radio" name="Gender" value="M " class="gen"  style="height: 1vw !important;">MALE
-    <input type="radio" name="Gender" value="F" class="gen"  style="height: 1vw !important;">FEMALE
-    <h2>Password</h2>
-    <input type="Password" placeholder="Enter your password" name="Password" />
-        <div class="btn">
-            <button>Submit</button>
-        </div>
-    </form>
-    <p>By clicking the Sign Up button, you agree to our <br>
-    <a herf="">Terms and Condition</a> and <a herf="#">Policy Privacy</a>  
-    </p>
-    <p>Already have an account? <a href="index.html"> Login Here</a> </p>
-        </div>
+        <form action="staff.php" method="POST" class="signup">
+            <h2>Name</h2>
+            <input type="text" placeholder="Enter your Name" name="Name" required>
+            <h2>Staff ID</h2>
+            <input type="text" placeholder="Enter your Staff ID" name="Staff_Id" required>
+            <h2>Email</h2>
+            <input type="email" placeholder="Enter your Email" name="Email" required>
+            <h2>Phone Number</h2>
+            <input type="tel" placeholder="Enter your Phone Number" name="Phone_Number" required>
+            <div class="select">
+                <h2>Department</h2>
+                <select name="Department" class="selc" required>
+                    <option value="" disabled selected>Please Select</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ISE">ISE</option>
+                    <option value="AIML">AIML</option>
+                    <option value="IOT">IOT</option>
+                    <option value="ENC">ENC</option>
+                    <option value="ME">ME</option>
+                    <option value="MTR">MTR</option>
+                    <option value="AE">AE</option>
+                    <option value="CV">CV</option>
+                </select>
+            </div>
+            <h2>DOB</h2>
+            <input type="date" name="DOB" required>
+            <h2>Gender</h2>
+            <input type="radio" name="Gender" value="M" class="gen" required>MALE
+            <input type="radio" name="Gender" value="F" class="gen" required>FEMALE
+            <h2>Password</h2>
+            <input type="password" placeholder="Enter your password" name="Password" required>
+            <div class="btn">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="mid">
+        <p>By clicking the Sign Up button, you agree to our 
+            <a href="termsandcondition.html">Terms and Condition</a> and <a href="Privacy_Policy.html">Privacy Policy</a>
+        </p>
+        <p>Already have an account? <a href="index.html">Login Here</a></p>
     </div>
     </div>
+
     <script>
         function showPage(pageId) {
             var pages = document.querySelectorAll('.page');
             for (var i = 0; i < pages.length; i++) {
-                pages[i].style.display = 'none';
+                pages[i].classList.remove('active');
             }
-            document.getElementById(pageId).style.display = 'block';
+            document.getElementById(pageId).classList.add('active');
 
-            
             var buttons = document.querySelectorAll('.button-container button');
             for (var i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove('active');
             }
             document.getElementById(pageId.split('Page')[0] + 'Button').classList.add('active');
         }
-        
-         showPage('studentPage');
+
+        showPage('studentPage');
     </script>
 </body>
 </html>

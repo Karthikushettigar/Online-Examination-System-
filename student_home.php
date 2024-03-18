@@ -46,108 +46,92 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar</title>
+    <title>Online Examination System</title>
     <style>
+       
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
         }
 
         .navbar {
-            overflow: hidden;
-            background-color: #333; 
-        }
-
-        .navbar-left {
-            float: left;
-        }
-
-        .navbar-right {
-            float: right;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .navbar a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
+            color: #fff;
             text-decoration: none;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
         }
 
         .navbar a:hover {
-            background-color: #ddd; 
-            color: black;
-        }
-        
-        .main {
-            text-align: center;
-        }
-        
-        .box1 {
-            border: 2px solid black;
-            height: 60px;
-            width: 120px;
-        }
-        
-
-
-        .box:hover {
-            background-color: #ddd;
+            background-color: #555;
         }
 
-        .box h3 {
-            margin: 0;
-            font-size: 18px;
+        
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align:center;
+        }
+
+        .container h1 {
+            margin-top: 0;
+            font-size: 36px;
             color: #333;
         }
-        
-        .leaderboard {
-            position: relative;
-            top: 20px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
+
+        .container h2 {
+            font-size: 24px;
+            color: #333;
         }
 
-        th, td {
-            border: 2px solid #555;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
        
         .profile-card {
             display: none;
             position: absolute;
-            top: 70px;
+            top: 60px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #f0f0f0;
-            border: 2px solid #333;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
+
+        .profile-card h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .profile-card p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+
         
         .take-quiz-link {
             display: inline-block;
-            padding: 5px 10px;
+            padding: 10px 20px;
             background-color: #4CAF50;
-            color: white;
+            color: #fff;
             border-radius: 5px;
             text-decoration: none;
-            border: 1px solid #000;
+            transition: all 0.3s ease;
         }
 
         .take-quiz-link:hover {
@@ -168,22 +152,22 @@ if ($result->num_rows > 0) {
         <a href="index.html">Sign Out</a>
     </div>
 </div>
-<div class="main">
+
+<div class="container">
     <h1>Welcome to Online Examination System</h1>
     <h2>Take any Quiz</h2>
- 
-           <a href="take_quiz.html" class="take-quiz-link">Take Quiz</a>
-       
-    <div class="leaderboard">
-        <h2>Leaderboard</h2>
-        <a href="leaderboard.php" class="take-quiz-link">Leaderboard</a>
+    <a href="take_quiz.html" class="take-quiz-link">Take Quiz</a>
 
+    <div class="leaderboard">
+        <h2>View Leaderboard</h2>
+        <a href="leaderboard.php" class="take-quiz-link">Leaderboard</a>
     </div>
+
     <div class="profile-card" id="profileCard">
         <h3>User Details</h3>
         <p>Type of user: Student</p>
         <p>Name: <span><?php echo $Name; ?></span></p>
-        <p>USN:<span><?php echo $USN; ?></span></p>
+        <p>USN: <span><?php echo $USN; ?></span></p>
         <p>Email: <span><?php echo $Email; ?></span></p>
         <p>Ph.no: <span><?php echo $Ph_No; ?></span></p>
         <p>Department: <span><?php echo $Department; ?></span></p>
@@ -193,7 +177,6 @@ if ($result->num_rows > 0) {
 </div>
 
 <script>
-   
     function toggleProfileCard(event) {
         var profileCard = document.getElementById('profileCard');
         if (profileCard.style.display === 'block') {
@@ -201,11 +184,9 @@ if ($result->num_rows > 0) {
         } else {
             profileCard.style.display = 'block';
         }
-      
         event.stopPropagation();
     }
 
-   
     document.body.addEventListener('click', function() {
         var profileCard = document.getElementById('profileCard');
         profileCard.style.display = 'none';

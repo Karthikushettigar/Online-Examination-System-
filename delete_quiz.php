@@ -22,7 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $deleteQuestionsSQL = "DELETE FROM question WHERE Quiz_Id = '$quizId'";
 
     if ($conn->query($deleteQuizSQL) === TRUE && $conn->query($deleteQuestionsSQL) === TRUE) {
-        echo "Quiz and associated questions deleted successfully.";
+        echo '<script>
+        window.location.href = "delete_quiz.html";
+        alert("Quiz and associated questions deleted successfully.")
+        </script>';
     } else {
         echo "Error deleting quiz: " . $conn->error;
     }
